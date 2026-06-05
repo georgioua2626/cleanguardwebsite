@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pest Encyclopedia Cyprus | Clean Guard</title>
+  <meta name="description" content="Pest guide for homeowners and businesses in Cyprus. Learn about mosquitoes, cockroaches, rodents, ants and how to deal with them.">
+  <meta property="og:title" content="Pest Encyclopedia Cyprus | Clean Guard">
+  <meta property="og:description" content="Pest guide for homeowners and businesses in Cyprus. Learn about mosquitoes, cockroaches, rodents, ants and how to deal with them.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CY">
+  <meta property="og:site_name" content="Clean Guard Pest Control Cyprus">
+  <meta property="og:image" content="https://cgcpestcontrol.com/images/logo.png.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pest Encyclopedia Cyprus | Clean Guard">
+  <meta name="twitter:description" content="Pest guide for homeowners and businesses in Cyprus. Learn about mosquitoes, cockroaches, rodents, ants and how to deal with them.">
+  <link rel="alternate" hreflang="el" href="https://cgcpestcontrol.com/encyclopedia.html">
+  <link rel="alternate" hreflang="en" href="https://cgcpestcontrol.com/en/encyclopedia.html">
+  <link rel="alternate" hreflang="x-default" href="https://cgcpestcontrol.com/encyclopedia.html">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+
+  <style>
+    /* ── Encyclopedia Hero ── */
+    .enc-hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 55%, #34c471 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 90px;
+      text-align: center;
+      color: #fff;
+    }
+    .enc-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 75% 25%, rgba(255,255,255,.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(0,0,0,.14) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .enc-hero .container { position: relative; }
+    .enc-hero h1 {
+      color: #fff;
+      font-size: clamp(2.6rem, 6.5vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 1.1rem;
+    }
+    .enc-hero__sub {
+      color: rgba(255,255,255,.82);
+      font-size: 1.1rem;
+      line-height: 1.65;
+      max-width: 56ch;
+      margin: 0 auto 2rem;
+    }
+    .enc-hero__badges { display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: center; }
+    .enc-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem 0.4rem 0.75rem;
+      border-radius: 100px;
+      backdrop-filter: blur(6px);
+    }
+    .enc-hero__badge svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ── Category Cards ── */
+    .categories-section { background: var(--bg); }
+    .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .cat-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,.07);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;
+    }
+    .cat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .cat-card:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+    .cat-card__top {
+      background: var(--cat-accent);
+      position: relative;
+      padding: 1.5rem 1.5rem 1.35rem;
+      color: #fff;
+    }
+    .cat-card__chevron {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 26px;
+      height: 26px;
+      background: rgba(255,255,255,.22);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .cat-card:hover .cat-card__chevron { background: rgba(255,255,255,.35); transform: translateX(2px); }
+    .cat-card__top h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.55rem; padding-right: 2.25rem; line-height: 1.2; }
+    .cat-card__top p { color: rgba(255,255,255,.85); font-size: 0.84rem; line-height: 1.6; }
+    .cat-card__body {
+      background: var(--surface);
+      padding: 1.1rem 1.5rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .cat-card__stats { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(0,0,0,.07); }
+    .cat-card__stat { font-size: 0.82rem; font-weight: 700; color: var(--ink-muted); }
+    .cat-card__warning { display: flex; align-items: flex-start; gap: 0.45rem; font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5; }
+    .cat-card__warning svg { width: 14px; height: 14px; flex-shrink: 0; color: #F59E0B; margin-top: 1px; }
+    .cat-card__species { display: flex; align-items: center; gap: 0.45rem; font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5; }
+    .cat-card__species svg { width: 14px; height: 14px; flex-shrink: 0; color: #3B82F6; }
+
+    /* ── Extra Services ── */
+    .extra-section { background: var(--surface); }
+    .extra-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,.06);
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease;
+    }
+    .extra-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .extra-card__icon {
+      width: 52px; height: 52px; border-radius: 14px; background: var(--brand-light);
+      color: var(--brand); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .extra-card__icon svg { width: 24px; height: 24px; }
+    .extra-card__content { flex: 1; }
+    .extra-card__content h3 { margin-bottom: 0.4rem; }
+    .extra-card__content > p { font-size: 0.9rem; margin-bottom: 0.9rem; }
+    .extra-checklist { display: flex; flex-direction: column; gap: 0.35rem; }
+    .extra-checklist li {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--ink-muted);
+    }
+    .extra-checklist li::before {
+      content: '';
+      width: 16px; height: 16px; flex-shrink: 0;
+      background: var(--brand); border-radius: 50%;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E") center/contain no-repeat;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+
+    /* ── CTA ── */
+    .enc-cta {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 100%);
+      padding-block: 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .enc-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='white' opacity='.06'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+    .enc-cta .container { position: relative; z-index: 1; }
+    .enc-cta h2 { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.75rem; letter-spacing: -0.03em; }
+    .enc-cta p { color: rgba(255,255,255,.82); font-size: 1.05rem; max-width: 52ch; margin-inline: auto; margin-bottom: 2rem; line-height: 1.65; }
+    .enc-cta__actions { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; align-items: center; }
+    .btn-translucent-white { background: rgba(255,255,255,.18); color: #fff; border-color: rgba(255,255,255,.30); }
+    .btn-translucent-white:hover { background: rgba(255,255,255,.28); transform: translateY(-2px); }
+
+    @media (max-width: 960px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) {
+      .cat-grid { grid-template-columns: 1fr; }
+      .enc-cta { padding-block: 52px; }
+      .enc-cta__actions { flex-direction: column; }
+      .enc-cta__actions .btn { width: 100%; justify-content: center; }
+    }
+    .card-icon-img { width: 52px; height: 52px; border-radius: 14px; background: var(--brand-light); padding: 13px; box-sizing: border-box; object-fit: contain; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SHARED HEADER
+       ══════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container">
+
+      <a href="index.html" class="header-brand">
+        <img src="../images/logo.png.png" alt="Clean Guard Pest Control Cyprus — logo" class="header-brand__logo" width="40" height="40">
+        <div class="header-brand__text">
+          <span class="header-brand__name">Clean Guard</span>
+          <span class="header-brand__sub">Pest Control Cyprus</span>
+        </div>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="services.html">Our Services</a>
+        <a href="about.html">Our Team</a>
+        <a href="encyclopedia.html" class="active" aria-current="page">Encyclopedia</a>
+        <a href="tel:+35794300800" class="nav-phone">
+          <span class="nav-phone__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </span>
+          94 300 800
+        </a>
+        <a href="index.html#contact" class="btn btn-brand">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Contact Us
+        </a>
+        <div class="lang-toggle" aria-label="Language / Γλώσσα">
+          <a href="../encyclopedia.html" class="lang-toggle__opt" hreflang="el">EL</a>
+          <span class="lang-toggle__sep" aria-hidden="true"></span>
+          <span class="lang-toggle__opt lang-toggle__opt--active" aria-current="true">EN</span>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle"
+              aria-label="Open menu" aria-expanded="false"
+              aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+  <!-- / SHARED HEADER -->
+
+
+  <main>
+
+    <!-- HERO -->
+    <section class="enc-hero">
+      <div class="container">
+        <h1>Pest Encyclopedia</h1>
+        <p class="enc-hero__sub">
+          A comprehensive guide to the most common pests, the risks they pose and the methods used to control them.
+        </p>
+        <div class="enc-hero__badges">
+
+          <span class="enc-hero__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+            </svg>
+            6 Main Categories
+          </span>
+
+          <span class="enc-hero__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2L3 6v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V6L12 2z"/>
+            </svg>
+            Prevention Methods
+          </span>
+
+          <span class="enc-hero__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+            Professional Treatment
+          </span>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CATEGORIES -->
+    <section class="section categories-section">
+      <div class="container">
+
+        <div style="text-align:center;" data-animate>
+          <h2 class="section-title">Main Pest Categories</h2>
+          <p class="section-sub" style="margin:0 auto;">Click on a category to see detailed information</p>
+        </div>
+
+        <div class="cat-grid" style="margin-top:2.75rem;">
+
+          <!-- Cockroaches -->
+          <a href="encyclopedia/katsarides.html" class="cat-card" data-animate
+             style="--cat-accent: var(--cat-red)">
+            <div class="cat-card__top">
+              <div class="cat-card__chevron" aria-hidden="true">›</div>
+              <h3>Cockroaches</h3>
+              <p>Cockroaches are insects of the order Blattodea, known for their resilience and...</p>
+            </div>
+            <div class="cat-card__body">
+              <div class="cat-card__stats">
+                <span class="cat-card__stat">3 Species</span>
+                <span class="cat-card__stat">4 Health Risks</span>
+              </div>
+              <div class="cat-card__warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Salmonellosis, dysentery, and...
+              </div>
+              <div class="cat-card__species">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                German Cockroach
+              </div>
+            </div>
+          </a>
+
+          <!-- Rodents -->
+          <a href="encyclopedia/troktika.html" class="cat-card" data-animate data-animate-delay="1"
+             style="--cat-accent: var(--cat-orange)">
+            <div class="cat-card__top">
+              <div class="cat-card__chevron" aria-hidden="true">›</div>
+              <h3>Rodents</h3>
+              <p>Mice and rats can cause major health problems and damage to infrastructure...</p>
+            </div>
+            <div class="cat-card__body">
+              <div class="cat-card__stats">
+                <span class="cat-card__stat">3 Species</span>
+                <span class="cat-card__stat">4 Health Risks</span>
+              </div>
+              <div class="cat-card__warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Salmonella: Causes serious digestive...
+              </div>
+              <div class="cat-card__species">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                House Mouse
+              </div>
+            </div>
+          </a>
+
+          <!-- Stored-Product Insects -->
+          <a href="encyclopedia/entoma-apothikon.html" class="cat-card" data-animate data-animate-delay="2"
+             style="--cat-accent: var(--cat-amber)">
+            <div class="cat-card__top">
+              <div class="cat-card__chevron" aria-hidden="true">›</div>
+              <h3>Stored-Product Insects</h3>
+              <p>Stored-product insects cause enormous damage to grains, legumes and other food products.</p>
+            </div>
+            <div class="cat-card__body">
+              <div class="cat-card__stats">
+                <span class="cat-card__stat">3 Species</span>
+                <span class="cat-card__stat">4 Health Risks</span>
+              </div>
+              <div class="cat-card__warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Contamination and destruction of stored...
+              </div>
+              <div class="cat-card__species">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Indian Meal Moth
+              </div>
+            </div>
+          </a>
+
+          <!-- Ants -->
+          <a href="encyclopedia/myrmigkia.html" class="cat-card" data-animate data-animate-delay="3"
+             style="--cat-accent: var(--cat-green)">
+            <div class="cat-card__top">
+              <div class="cat-card__chevron" aria-hidden="true">›</div>
+              <h3>Ants</h3>
+              <p>Ants are among the most organised insects on the planet, but can become problematic...</p>
+            </div>
+            <div class="cat-card__body">
+              <div class="cat-card__stats">
+                <span class="cat-card__stat">3 Species</span>
+                <span class="cat-card__stat">4 Health Risks</span>
+              </div>
+              <div class="cat-card__warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Food and surface contamination
+              </div>
+              <div class="cat-card__species">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Black Ant
+              </div>
+            </div>
+          </a>
+
+          <!-- Flies -->
+          <a href="encyclopedia/myges.html" class="cat-card" data-animate data-animate-delay="4"
+             style="--cat-accent: var(--cat-blue)">
+            <div class="cat-card__top">
+              <div class="cat-card__chevron" aria-hidden="true">›</div>
+              <h3>Flies</h3>
+              <p>Flies are among the most annoying and dangerous visitors, carrying over 100 microorganisms...</p>
+            </div>
+            <div class="cat-card__body">
+              <div class="cat-card__stats">
+                <span class="cat-card__stat">3 Species</span>
+                <span class="cat-card__stat">4 Health Risks</span>
+              </div>
+              <div class="cat-card__warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Salmonella: Food poisoning
+              </div>
+              <div class="cat-card__species">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                House Fly
+              </div>
+            </div>
+          </a>
+
+          <!-- Mosquitoes -->
+          <a href="encyclopedia/kounoupia.html" class="cat-card" data-animate data-animate-delay="5"
+             style="--cat-accent: var(--cat-purple)">
+            <div class="cat-card__top">
+              <div class="cat-card__chevron" aria-hidden="true">›</div>
+              <h3>Mosquitoes</h3>
+              <p>Mosquitoes can transmit serious diseases and are particularly active in humid environments...</p>
+            </div>
+            <div class="cat-card__body">
+              <div class="cat-card__stats">
+                <span class="cat-card__stat">3 Species</span>
+                <span class="cat-card__stat">4 Health Risks</span>
+              </div>
+              <div class="cat-card__warning">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Malaria: Serious disease from...
+              </div>
+              <div class="cat-card__species">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Anopheles Mosquito
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL SERVICES -->
+    <section class="section extra-section">
+      <div class="container">
+
+        <div style="text-align:center;" data-animate>
+          <h2 class="section-title">Additional Services</h2>
+          <p class="section-sub" style="margin:0 auto;">Comprehensive solutions for protecting your property</p>
+        </div>
+
+        <div class="card-grid-2" style="margin-top:2.75rem;">
+
+          <div class="extra-card" data-animate>
+            <img src="../images/disinfection-card-icon.png" alt="Disinfection" class="card-icon-img">
+            <div class="extra-card__content">
+              <h3>Disinfection</h3>
+              <p>Neutralisation of harmful microorganisms in homes and businesses</p>
+              <ul class="extra-checklist">
+                <li>High-pressure spray</li>
+                <li>Fogging (nebulisation)</li>
+                <li>Hydrogen peroxide disinfectants</li>
+                <li>UV disinfection</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="extra-card" data-animate data-animate-delay="1">
+            <img src="../images/sterilisation-card-icon.png" alt="Sterilisation" class="card-icon-img">
+            <div class="extra-card__content">
+              <h3>Sterilisation</h3>
+              <p>100% elimination of microorganisms for specialist spaces</p>
+              <ul class="extra-checklist">
+                <li>Thermal sterilisation</li>
+                <li>Chemical sterilisation</li>
+                <li>Ozone sterilisation</li>
+                <li>UV-C radiation</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- CTA -->
+  <section class="enc-cta">
+    <div class="container">
+      <h2 data-animate>Need Professional Help?</h2>
+      <p data-animate>Our certified specialists are ready to help with any pest problem.</p>
+      <div class="enc-cta__actions" data-animate>
+        <a href="index.html#contact" class="btn btn-white">
+          Contact Us →
+        </a>
+        <a href="tel:+35794300800" class="btn btn-translucent-white">
+          94 300 800
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════
+       SHARED FOOTER
+       ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-brand__logo-wrap">
+          <img src="../images/logo.png.png" alt="Clean Guard Pest Control Cyprus — logo" class="footer-brand__logo">
+          <div>
+            <div class="footer-brand__name">Clean Guard</div>
+            <div class="footer-brand__sub">Pest Control Cyprus</div>
+          </div>
+        </div>
+        <p>Professional pest control and disinfection services throughout Cyprus. Trust the specialists.</p>
+        <div class="footer-brand__contact">
+          <a href="tel:+35794300800" class="footer-brand__contact-item footer-brand__contact-item--phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+            94 300 800
+          </a>
+          <a href="mailto:cgcpest@gmail.com" class="footer-brand__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            cgcpest@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="services/apentomosi.html">Insect Control</a></li>
+          <li><a href="services/apolymansi.html">Disinfection</a></li>
+          <li><a href="services/myoktonia.html">Rodent Control</a></li>
+          <li><a href="services/apothitika.html">Pest Repellents</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="encyclopedia.html">Encyclopedia</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+35794300800">94 300 800</a></li>
+          <li><a href="mailto:cgcpest@gmail.com">cgcpest@gmail.com</a></li>
+          <li>Cyprus, Nicosia</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Λεωφ.+Στροβόλου+227+Στρόβολος+2049+Κύπρος" target="_blank" rel="noopener">Λεωφ. Στροβόλου 227, 2ος όροφος,<br>2049 Στρόβολος, Λευκωσία</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <div class="container">
+        <span class="footer-bar__copy">
+          &copy; 2026 Clean Guard Pest Control Cyprus. All rights reserved.
+        </span>
+        <div class="footer-bar__policies">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / SHARED FOOTER -->
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
