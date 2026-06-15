@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pest Control & Disinfection Nicosia | Clean Guard</title>
+  <meta name="description" content="Professional pest control & disinfection in Nicosia and across Cyprus. Certified technicians, 24/7 service, guaranteed results. Call 94 300 800.">
+  <meta property="og:title" content="Pest Control & Disinfection Nicosia | Clean Guard">
+  <meta property="og:description" content="Professional pest control & disinfection in Nicosia and across Cyprus. Certified technicians, 24/7 service, guaranteed results. Call 94 300 800.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CY">
+  <meta property="og:site_name" content="Clean Guard Pest Control Cyprus">
+  <meta property="og:image" content="https://cgcpestcontrol.com/images/logo.png.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pest Control & Disinfection Nicosia | Clean Guard">
+  <meta name="twitter:description" content="Professional pest control & disinfection in Nicosia and across Cyprus. Certified technicians, 24/7 service, guaranteed results. Call 94 300 800.">
+  <link rel="alternate" hreflang="el" href="https://cgcpestcontrol.com/index.html">
+  <link rel="alternate" hreflang="en" href="https://cgcpestcontrol.com/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://cgcpestcontrol.com/index.html">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+
+  <style>
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0a141c;
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       VIDEO PANEL — full-bleed background
+       ═══════════════════════════════════════════════════ */
+    .hero-video-panel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Gradient overlay: dark at top where text sits, fading to transparent at bottom */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,20,28,.78) 0%,
+        rgba(10,20,28,.55) 40%,
+        rgba(10,20,28,.25) 100%
+      );
+    }
+
+    /* Dot-grid texture over the overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,.038) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    /* Radial green glow bottom-left */
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -80px;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(39,174,96,.18) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      padding-left: max(1.5rem, calc((100vw - 1140px) / 2 + 1.5rem));
+      padding-right: 1.5rem;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(39,174,96,.18);
+      border: 1px solid rgba(39,174,96,.4);
+      color: #6ee29b;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badge svg { width: 12px; height: 12px; }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--brand);
+    }
+
+    .hero-sub {
+      color: rgba(255,255,255,.72);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 50ch;
+      margin-bottom: 2rem;
+    }
+
+    /* Hero buttons — pill style */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      padding: 0.72rem 1.45rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(39,174,96,.38);
+      transition: background 0.18s ease,
+                  transform 0.18s cubic-bezier(.34,1.56,.64,1),
+                  box-shadow 0.18s ease;
+    }
+    .hero-btn-primary svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .hero-btn-primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(39,174,96,.48);
+    }
+    .hero-btn-primary:active { transform: translateY(0); }
+    .hero-btn-primary:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 3px;
+    }
+
+    .hero-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,.09);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+      padding: 0.72rem 1.45rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(255,255,255,.28);
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: background 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.18s cubic-bezier(.34,1.56,.64,1);
+    }
+    .hero-btn-secondary svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .hero-btn-secondary:hover {
+      background: rgba(255,255,255,.16);
+      border-color: rgba(255,255,255,.5);
+      transform: translateY(-2px);
+    }
+    .hero-btn-secondary:active { transform: translateY(0); }
+    .hero-btn-secondary:focus-visible {
+      outline: 2px solid rgba(255,255,255,.6);
+      outline-offset: 3px;
+    }
+
+    /* Trust grid — 2×2 */
+    .hero-trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .hero-trust-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+    }
+
+    .hero-trust-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-trust-icon svg { width: 17px; height: 17px; }
+
+    .hero-trust-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.4;
+      padding-top: 0.1rem;
+    }
+
+    /* Mobile: overlay uniform dark + single-column stacking */
+    @media (max-width: 768px) {
+      .hero-content { padding: 80px 1.5rem 60px; }
+      .hero::before {
+        background: linear-gradient(
+          to bottom,
+          rgba(10,20,28,.78) 0%,
+          rgba(10,20,28,.25) 100%
+        );
+      }
+      .hero-trust-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .hero-btn-primary,
+      .hero-btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* ── Section heading block (reusable) ── */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Green second line inside any .section-title */
+    .section-title em {
+      font-style: normal;
+      color: var(--brand);
+      display: block;
+    }
+
+    /* ── Services ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,.05);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1),
+                  box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card__icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .service-card__icon svg { width: 26px; height: 26px; }
+
+    .card-icon-img {
+      width: 108px;
+      height: 108px;
+      border-radius: 28px;
+      object-fit: cover;
+      margin-bottom: 1.1rem;
+      flex-shrink: 0;
+      display: block;
+    }
+    .service-icon-img { background: none; padding: 0; object-fit: cover; }
+
+    .service-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .service-card > p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+    }
+
+    .service-card .card-checklist { margin-bottom: 1.4rem; }
+
+    .service-card .btn {
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 0.55rem 1.15rem;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 700px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Rating strip ── */
+    .rating-strip {
+      background: var(--surface);
+      border-top: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      padding-block: 38px;
+    }
+
+    .rating-strip .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem 3rem;
+    }
+
+    .rating-block {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .rating-stars {
+      display: flex;
+      gap: 2px;
+      color: #F59E0B;
+    }
+
+    .rating-stars svg { width: 20px; height: 20px; fill: currentColor; }
+
+    .rating-score {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .rating-label {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.3;
+    }
+
+    .rating-label strong {
+      display: block;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .rating-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(0,0,0,.1);
+    }
+
+    .rating-cta-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .rating-cta-text {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      max-width: 22ch;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 600px) {
+      .rating-divider { display: none; }
+    }
+
+    /* ── About teaser ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: stretch;
+    }
+
+    .about-text .section-eyebrow { margin-bottom: 0.5rem; }
+    .about-text h2 { margin-bottom: 0.85rem; }
+    .about-text > p { margin-bottom: 1.6rem; color: var(--ink-muted); line-height: 1.72; font-size: 0.96rem; }
+
+    /* 2×2 highlight cards */
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-highlight-card {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 1.25rem;
+      border: 1px solid rgba(0,0,0,.06);
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+    }
+
+    .about-highlight-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-highlight-card__icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.7rem;
+    }
+
+    .about-highlight-card__icon svg { width: 18px; height: 18px; }
+
+    .about-highlight-card__title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.35;
+    }
+
+    .about-highlight-card__text {
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Media block (right column) */
+    .about-media { position: relative; height: 100%; }
+
+    .about-media__frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05), 0 12px 32px rgba(0,0,0,.10), 0 32px 72px rgba(0,0,0,.12);
+      height: 100%;
+      min-height: 420px;
+      background-image: url('../images/clean-guard-team.png.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .about-media__frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(145deg, rgba(10,18,28,.55) 0%, rgba(10,18,28,.15) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .about-media__heading {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      color: #fff;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      z-index: 2;
+      text-shadow: 0 1px 4px rgba(0,0,0,.35);
+    }
+
+    /* Floating star badge */
+    .about-star-badge {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 12px;
+      padding: 0.6rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(39,174,96,.45);
+      z-index: 2;
+      letter-spacing: 0.01em;
+    }
+
+    .about-star-badge svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+      .about-media { height: auto; }
+      .about-media__frame { height: auto; aspect-ratio: 4/3; min-height: 0; }
+    }
+
+    @media (max-width: 500px) {
+      .about-highlights { grid-template-columns: 1fr; }
+    }
+
+    /* ── Contact ── */
+    .contact-section { background: var(--bg); }
+
+    .contact-section .section-sub {
+      max-width: 54ch;
+      margin: 0.75rem auto 0;
+    }
+
+    /* Four info cards */
+    .contact-cards-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+      align-items: stretch;
+      grid-auto-rows: 1fr;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,.05);
+      box-shadow: var(--shadow-sm);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .contact-card__icon svg { width: 22px; height: 22px; }
+
+    .contact-card__title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card__value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .contact-card__value a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .contact-card__value a:hover { color: var(--brand); }
+
+    .contact-card__sub {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    /* Form panel — full width */
+    .contact-form-panel {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,.05);
+      box-shadow: var(--shadow-sm);
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-form-panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .contact-form-panel > p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-grid-2 .form-group--full {
+      grid-column: 1 / -1;
+    }
+
+    .contact-form-panel .btn {
+      width: 100%;
+      justify-content: center;
+      padding-block: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .form-success__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--brand-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.1rem;
+      color: var(--brand);
+    }
+
+    .form-success__icon svg { width: 32px; height: 32px; }
+
+    .form-success h3 { margin-bottom: 0.5rem; }
+    .form-success p  { font-size: 0.9rem; }
+
+    /* Alt contact mini-row */
+    .contact-alt { text-align: center; }
+
+    .contact-alt__title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-alt__row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact-alt-card {
+      background: var(--surface);
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.05);
+      box-shadow: var(--shadow-sm);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s ease;
+    }
+
+    .contact-alt-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-alt-card__icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-alt-card__icon svg { width: 17px; height: 17px; }
+
+    .contact-alt-card__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .contact-alt-card__value {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .contact-cards-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .form-grid-2 .form-group--full { grid-column: 1; }
+      .contact-alt__row { grid-template-columns: 1fr; max-width: 280px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Clean Guard Pest Control Cyprus",
+    "telephone": "+357 94 300 800",
+    "email": "cgcpest@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Λεωφ. Στροβόλου 227, 2ος όροφος",
+      "postalCode": "2049",
+      "addressLocality": "Strovolos",
+      "addressRegion": "Nicosia",
+      "addressCountry": "CY"
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Cyprus" },
+      { "@type": "City", "name": "Nicosia" }
+    ],
+    "url": "https://cgcpestcontrol.com/en/index.html",
+    "logo": "https://cgcpestcontrol.com/images/logo.png.png",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.1438,
+      "longitude": 33.3469
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=48MH%2B4H+Strovolos+Cyprus",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "reviewCount": "1"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SHARED HEADER
+       ══════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container">
+
+      <a href="index.html" class="header-brand">
+        <img src="../images/logo.png.png" alt="Clean Guard Pest Control Cyprus — logo" class="header-brand__logo" width="40" height="40">
+        <div class="header-brand__text">
+          <span class="header-brand__name">Clean Guard</span>
+          <span class="header-brand__sub">Pest Control Cyprus</span>
+        </div>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="services.html">Our Services</a>
+        <a href="about.html">Our Team</a>
+        <a href="encyclopedia.html">Encyclopedia</a>
+        <a href="tel:+35794300800" class="nav-phone">
+          <span class="nav-phone__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </span>
+          94 300 800
+        </a>
+        <div class="lang-toggle" aria-label="Language / Γλώσσα">
+          <a href="../index.html" class="lang-toggle__opt" hreflang="el">EL</a>
+          <span class="lang-toggle__sep" aria-hidden="true"></span>
+          <span class="lang-toggle__opt lang-toggle__opt--active" aria-current="true">EN</span>
+        </div>
+        <a href="#contact" class="btn btn-brand">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Contact
+        </a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle"
+              aria-label="Open menu" aria-expanded="false"
+              aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+  <!-- / SHARED HEADER -->
+
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+         ══════════════════════════════════════════ -->
+    <section id="hero" class="hero">
+
+      <div class="hero-video-panel" aria-hidden="true">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster=""
+        >
+          <source src="../video/hero-video-v2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-inner">
+
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Pest Control Cyprus — Nicosia
+          </div>
+
+          <h1>
+            A Clean, Pest-Free Space<br>
+            <em>with Clean Guard</em>
+          </h1>
+
+          <p class="hero-sub">
+            Professional pest control, disinfection, and rodent management services across Cyprus. Fast, effective, and guaranteed.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="hero-btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Book an Appointment
+            </a>
+            <a href="tel:+35794300800" class="hero-btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+              94 300 800
+            </a>
+          </div>
+
+          <div class="hero-trust-grid">
+
+            <div class="hero-trust-card">
+              <div class="hero-trust-icon" style="background:rgba(39,174,96,.2); color:#6ee29b;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span class="hero-trust-label">Complete Coverage for Homes &amp; Businesses</span>
+            </div>
+
+            <div class="hero-trust-card">
+              <div class="hero-trust-icon" style="background:rgba(245,158,11,.2); color:#fbbf24;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="hero-trust-label">Rapid Response &amp; Service</span>
+            </div>
+
+            <div class="hero-trust-card">
+              <div class="hero-trust-icon" style="background:rgba(59,130,246,.2); color:#93c5fd;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <span class="hero-trust-label">Transparency &amp; Professionalism</span>
+            </div>
+
+            <div class="hero-trust-card">
+              <div class="hero-trust-icon" style="background:rgba(139,92,246,.2); color:#c4b5fd;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+              </div>
+              <span class="hero-trust-label">Certified Effectiveness</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <!-- / HERO -->
+
+
+    <!-- ══════════════════════════════════════════
+         OUR SERVICES
+         ══════════════════════════════════════════ -->
+    <section id="services" class="section" style="background: var(--bg);">
+      <div class="container">
+
+        <div class="section-heading" data-animate>
+          <span class="section-eyebrow">WHAT WE OFFER</span>
+          <h2 class="section-title">
+            Our Services<br>
+            <em>For Every Pest Problem</em>
+          </h2>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Insect Control -->
+          <div class="service-card" data-animate data-animate-delay="1">
+            <img src="../images/apentomosi-icon.png.png" alt="Insect Control" class="card-icon-img service-icon-img">
+            <h3>Insect Control</h3>
+            <p>Elimination of all insect species using approved methods and certified products that are safe for your family.</p>
+            <ul class="card-checklist">
+              <li>Cockroaches, ants &amp; fleas</li>
+              <li>Bedbugs, ticks &amp; midges</li>
+              <li>Wasps &amp; bees</li>
+            </ul>
+            <a href="services.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+          <!-- Disinfection -->
+          <div class="service-card" data-animate data-animate-delay="2">
+            <img src="../images/apolymansi-icon.png.png" alt="Disinfection" class="card-icon-img service-icon-img">
+            <h3>Disinfection</h3>
+            <p>Full disinfection of spaces and surfaces using certified formulations — effective against pathogens and viruses.</p>
+            <ul class="card-checklist">
+              <li>Food premises &amp; warehouses</li>
+              <li>Residential homes &amp; offices</li>
+              <li>Safe for children &amp; pets</li>
+            </ul>
+            <a href="services.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+          <!-- Rodent Control -->
+          <div class="service-card" data-animate data-animate-delay="1">
+            <img src="../images/myoktonia-icon.png.png" alt="Rodent Control" class="card-icon-img service-icon-img">
+            <h3>Rodent Control</h3>
+            <p>Comprehensive rodent management using the most modern techniques — without risk to your property.</p>
+            <ul class="card-checklist">
+              <li>Mice &amp; rats</li>
+              <li>Traps, baits &amp; repellents</li>
+              <li>Entry-point sealing</li>
+            </ul>
+            <a href="services.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+          <!-- Pest Repellents -->
+          <div class="service-card" data-animate data-animate-delay="2">
+            <img src="../images/apothitika-icon.png.png" alt="Pest Repellents" class="card-icon-img service-icon-img">
+            <h3>Pest Repellents</h3>
+            <p>Permanent perimeter protection for outdoor areas and buildings — prevents re-infestation.</p>
+            <ul class="card-checklist">
+              <li>Natural &amp; chemical repellents</li>
+              <li>Outdoor areas &amp; gardens</li>
+              <li>Long-term protection</li>
+            </ul>
+            <a href="services.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- / SERVICES -->
+
+
+    <!-- ══════════════════════════════════════════
+         RATING STRIP
+         ══════════════════════════════════════════ -->
+    <div class="rating-strip" data-animate>
+      <div class="container">
+
+        <div class="rating-block">
+          <div class="rating-stars" aria-label="4.9 stars out of 5">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="rating-score">4.9/5</div>
+          </div>
+          <div class="rating-label">
+            <strong>Customer Rating</strong>
+            Based on 200+ reviews
+          </div>
+        </div>
+
+        <div class="rating-divider" aria-hidden="true"></div>
+
+        <div class="rating-cta-wrap">
+          <p class="rating-cta-text">Free property inspection — no obligation</p>
+          <a href="#contact" class="btn btn-brand">Free Inspection</a>
+        </div>
+
+      </div>
+    </div>
+    <!-- / RATING STRIP -->
+
+
+    <!-- ══════════════════════════════════════════
+         ABOUT TEASER
+         ══════════════════════════════════════════ -->
+    <section id="about-teaser" class="section" style="background: var(--surface);">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Left: text + highlight cards -->
+          <div class="about-text" data-animate>
+            <span class="section-eyebrow">OUR TEAM</span>
+            <h2 class="section-title">
+              Our Team<br>
+              <em>Expertise &amp; Science</em>
+            </h2>
+            <p>
+              Clean Guard is a specialist pest control company operating in Cyprus for over 6 years. Headquartered in Nicosia, we serve residential, commercial, and industrial properties across the island.
+            </p>
+
+            <!-- 2×2 highlight cards -->
+            <div class="about-highlights">
+
+              <div class="about-highlight-card">
+                <div class="about-highlight-card__icon" style="background:rgba(39,174,96,.12); color:var(--brand);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="about-highlight-card__title">Safe &amp; Effective Methods</div>
+                <p class="about-highlight-card__text">EU-approved formulations, safe for people and pets.</p>
+              </div>
+
+              <div class="about-highlight-card">
+                <div class="about-highlight-card__icon" style="background:rgba(59,130,246,.12); color:var(--cat-blue);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="about-highlight-card__title">Thorough Inspections</div>
+                <p class="about-highlight-card__text">In-depth inspection before and after every treatment for optimal results.</p>
+              </div>
+
+              <div class="about-highlight-card">
+                <div class="about-highlight-card__icon" style="background:rgba(245,158,11,.12); color:var(--cat-amber);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="about-highlight-card__title">Certified Professionals</div>
+                <p class="about-highlight-card__text">Fully certified team by the Cyprus Association of Pest Control Operators.</p>
+              </div>
+
+              <div class="about-highlight-card">
+                <div class="about-highlight-card__icon" style="background:rgba(139,92,246,.12); color:var(--cat-purple);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div class="about-highlight-card__title">Customer Satisfaction</div>
+                <p class="about-highlight-card__text">4.9/5 rating across 200+ reviews — your trust is our best testimony.</p>
+              </div>
+
+            </div>
+            <!-- / highlight cards -->
+
+            <a href="about.html" class="btn btn-brand">Meet Our Team</a>
+          </div>
+
+          <!-- Right: framed media block -->
+          <div class="about-media" data-animate>
+
+            <div class="about-media__frame" role="img" aria-label="The Clean Guard team at work">
+              <div class="about-media__heading">Clean Guard Team</div>
+              <!-- Floating star badge -->
+              <div class="about-star-badge" aria-label="Rating 4.9 out of 5">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                4.9 / 5 — Customer Rating
+              </div>
+            </div>
+
+          </div>
+          <!-- / media block -->
+
+        </div>
+      </div>
+    </section>
+    <!-- / ABOUT TEASER -->
+
+
+    <!-- ══════════════════════════════════════════
+         CONTACT
+         ══════════════════════════════════════════ -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+
+        <div class="section-heading" data-animate>
+          <span class="section-eyebrow">CONTACT</span>
+          <h2 class="section-title">
+            Get in Touch<br>
+            <em>For Professional Service</em>
+          </h2>
+          <p class="section-sub">We are here for you — 24 hours a day, 7 days a week for emergencies.</p>
+        </div>
+
+        <!-- Four contact info cards -->
+        <div class="contact-cards-row" data-animate>
+
+          <div class="contact-card">
+            <div class="contact-card__icon" style="background:#E8F8EF; color:var(--brand);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+            </div>
+            <div class="contact-card__title">Phone</div>
+            <div class="contact-card__value"><a href="tel:+35794300800" style="white-space:nowrap;">94 300 800</a></div>
+            <div class="contact-card__sub">Call us any time</div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon" style="background:#EFF6FF; color:var(--cat-blue);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card__title">Email</div>
+            <div class="contact-card__value"><a href="mailto:cgcpest@gmail.com">cgcpest@gmail.com</a></div>
+            <div class="contact-card__sub">Reply within 2 hours</div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon" style="background:#FEF3C7; color:var(--cat-amber);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-card__title">Location</div>
+            <div class="contact-card__value">Cyprus, Nicosia</div>
+            <div class="contact-card__sub">Service throughout Cyprus</div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon" style="background:#F5F3FF; color:var(--cat-purple);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="contact-card__title">Hours</div>
+            <div class="contact-card__value">24/7 Emergencies</div>
+            <div class="contact-card__sub">Mon–Fri 08:00–18:00</div>
+          </div>
+
+        </div>
+
+        <!-- Form card — full width -->
+        <div class="contact-form-panel" data-animate>
+          <h3>Send a Message</h3>
+          <p>Fill in the form and we will get back to you shortly.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="form-grid-2">
+
+              <div class="form-group">
+                <label for="name">Full Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder="e.g. George Papadopoulos" required autocomplete="name">
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required autocomplete="email">
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone <span aria-hidden="true">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="9X XXX XXX" required autocomplete="tel">
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service <span aria-hidden="true">*</span></label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <option value="apentomosi">Insect Control</option>
+                  <option value="apolymasi">Disinfection</option>
+                  <option value="myoktonia">Rodent Control</option>
+                  <option value="apothetika">Pest Repellents</option>
+                  <option value="allo">Other</option>
+                </select>
+                <span class="form-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="area">Area</label>
+                <select id="area" name="area">
+                  <option value="" disabled selected>Select an area…</option>
+                  <option value="lefkosia">Nicosia</option>
+                  <option value="lemesos">Limassol</option>
+                  <option value="larnaka">Larnaca</option>
+                  <option value="pafos">Paphos</option>
+                  <option value="ammohostos">Famagusta</option>
+                  <option value="kyrenia">Kyrenia</option>
+                </select>
+              </div>
+
+              <div class="form-group form-group--full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Describe your issue or requirements…"></textarea>
+                <span class="form-error" role="alert"></span>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-brand">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Alt contact mini-section -->
+        <div class="contact-alt" data-animate>
+          <p class="contact-alt__title">Prefer another way to reach us?</p>
+          <div class="contact-alt__row">
+
+            <a href="tel:+35794300800" class="contact-alt-card">
+              <div class="contact-alt-card__icon" style="background:#E8F8EF; color:var(--brand);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+              </div>
+              <div class="contact-alt-card__label">Phone</div>
+              <div class="contact-alt-card__value">94 300 800</div>
+            </a>
+
+            <a href="mailto:cgcpest@gmail.com" class="contact-alt-card">
+              <div class="contact-alt-card__icon" style="background:#EFF6FF; color:var(--cat-blue);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-alt-card__label">Email</div>
+              <div class="contact-alt-card__value">cgcpest@gmail.com</div>
+            </a>
+
+            <div class="contact-alt-card">
+              <div class="contact-alt-card__icon" style="background:#FEF3C7; color:var(--cat-amber);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-alt-card__label">Location</div>
+              <div class="contact-alt-card__value">Nicosia, Cyprus</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- / CONTACT -->
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       SHARED CTA BANNER
+       ══════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-animate>Need Professional Pest Control?</h2>
+      <p data-animate>
+        Our certified specialists are ready to help with any pest problem. We cover the whole of Cyprus.
+      </p>
+      <div class="cta-banner__actions" data-animate>
+        <a href="tel:+35794300800" class="btn btn-white">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+          Call Now
+        </a>
+        <a href="mailto:cgcpest@gmail.com" class="btn btn-outline-white">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- / SHARED CTA BANNER -->
+
+
+  <!-- ══════════════════════════════════════════
+       SHARED FOOTER
+       ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-brand__logo-wrap">
+          <img src="../images/logo.png.png" alt="Clean Guard Pest Control Cyprus — logo" class="footer-brand__logo">
+          <div>
+            <div class="footer-brand__name">Clean Guard</div>
+            <div class="footer-brand__sub">Pest Control Cyprus</div>
+          </div>
+        </div>
+        <p>Professional pest control and disinfection services throughout Cyprus. Trust the specialists.</p>
+        <div class="footer-brand__contact">
+          <a href="tel:+35794300800" class="footer-brand__contact-item footer-brand__contact-item--phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+            94 300 800
+          </a>
+          <a href="mailto:cgcpest@gmail.com" class="footer-brand__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            cgcpest@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="services.html">Insect Control</a></li>
+          <li><a href="services.html">Disinfection</a></li>
+          <li><a href="services.html">Rodent Control</a></li>
+          <li><a href="services.html">Pest Repellents</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="encyclopedia.html">Encyclopedia</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+35794300800">94 300 800</a></li>
+          <li><a href="mailto:cgcpest@gmail.com">cgcpest@gmail.com</a></li>
+          <li>Cyprus, Nicosia</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Λεωφ.+Στροβόλου+227+Στρόβολος+2049+Κύπρος" target="_blank" rel="noopener">Λεωφ. Στροβόλου 227, 2ος όροφος,<br>2049 Στρόβολος, Λευκωσία</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <div class="container">
+        <span class="footer-bar__copy">
+          &copy; 2026 Clean Guard Pest Control Cyprus. All rights reserved.
+        </span>
+        <div class="footer-bar__policies">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / SHARED FOOTER -->
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.CleanGuard.initFormValidation(
+        document.getElementById('contact-form'),
+        function (form) {
+          form.innerHTML =
+            '<div class="form-success">' +
+              '<div class="form-success__icon">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>' +
+              '</div>' +
+              '<h3>Your message has been sent!</h3>' +
+              '<p>We will contact you within 2 hours. For emergencies, call <a href="tel:+35794300800" style="color:var(--brand);font-weight:600;">94 300 800</a>.</p>' +
+            '</div>';
+        }
+      );
+    });
+  </script>
+
+</body>
+</html>

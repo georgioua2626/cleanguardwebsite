@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Υπηρεσίες Απεντόμωσης Κύπρος | Clean Guard</title>
+  <meta name="description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης και προστασίας αποθηκών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
+  <meta property="og:title" content="Υπηρεσίες Απεντόμωσης Κύπρος | Clean Guard">
+  <meta property="og:description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης και προστασίας αποθηκών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:site_name" content="Clean Guard Pest Control Cyprus">
+  <meta property="og:image" content="images/logo.png.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Υπηρεσίες Απεντόμωσης Κύπρος | Clean Guard">
+  <meta name="twitter:description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης και προστασίας αποθηκών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
+  <link rel="alternate" hreflang="el" href="https://cgcpestcontrol.com/services.html">
+  <link rel="alternate" hreflang="en" href="https://cgcpestcontrol.com/en/services.html">
+  <link rel="alternate" hreflang="x-default" href="https://cgcpestcontrol.com/services.html">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <style>
+    /* ── Services Hero ── */
+    .services-hero {
+      background: linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 55%, #34c471 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      text-align: center;
+      color: #fff;
+    }
+    .services-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 78% 35%, rgba(255,255,255,.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 18% 78%, rgba(0,0,0,.14) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .services-hero .container { position: relative; }
+    .services-hero h1 {
+      color: #fff;
+      font-size: clamp(2.25rem, 5vw, 3.2rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .services-hero__sub {
+      color: rgba(255,255,255,.85);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 52ch;
+      margin: 0 auto 2.25rem;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-badge {
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.32);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 1.15rem;
+      border-radius: 100px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ── Service card color tokens ── */
+    .service-card--red    { --card-color: var(--cat-red);    --card-light: #FEF2F2; }
+    .service-card--orange { --card-color: var(--cat-orange); --card-light: #FFF7ED; }
+    .service-card--blue   { --card-color: var(--cat-blue);   --card-light: #EFF6FF; }
+    .service-card--green  { --card-color: var(--brand);      --card-light: var(--brand-light); }
+
+    /* ── Services List ── */
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-top: 3rem;
+    }
+    .service-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .service-card__header {
+      background: var(--card-color);
+      padding: 1.5rem 1.75rem;
+    }
+    .service-card__header h3 {
+      color: #fff;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.2rem;
+    }
+    .service-card__sub {
+      color: rgba(255,255,255,.8);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .service-card__body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-card__body > p { margin-bottom: 1.25rem; font-size: 0.9rem; line-height: 1.65; }
+    .service-card__checklist-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 0.85rem;
+    }
+    .service-card__checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem 1.5rem;
+      margin-bottom: 1.75rem;
+      flex: 1;
+    }
+    .service-card__checklist li {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.85rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--card-light);
+      color: var(--card-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .check-icon svg { width: 10px; height: 10px; }
+    .btn-card {
+      background: var(--card-color);
+      color: #fff;
+      border: none;
+      width: 100%;
+      justify-content: center;
+      padding-block: 0.85rem;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .btn-card:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-card:active { opacity: 1; transform: translateY(0); }
+
+    /* ── Why Section ── */
+    .why-section { background: var(--surface); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .why-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .why-item__icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .why-item__icon svg { width: 28px; height: 28px; }
+    .why-item h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .why-item p { font-size: 0.875rem; line-height: 1.6; }
+
+    /* ── CTA phone button translucent variant ── */
+    .btn-translucent-white {
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      border: none;
+    }
+    .btn-translucent-white:hover { background: rgba(255,255,255,.28); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .services-list { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .service-card__checklist { grid-template-columns: 1fr; }
+      .service-card__body { padding: 1.25rem; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SHARED HEADER
+       ══════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container">
+
+      <a href="index.html" class="header-brand">
+        <img src="images/logo.png.png" alt="Clean Guard Pest Control Cyprus — λογότυπο" class="header-brand__logo" width="40" height="40">
+        <div class="header-brand__text">
+          <span class="header-brand__name">Clean Guard</span>
+          <span class="header-brand__sub">Pest Control Cyprus</span>
+        </div>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Κύρια πλοήγηση">
+        <a href="services.html" class="active" aria-current="page">Οι Υπηρεσίες μας</a>
+        <a href="about.html">Η Ομάδα μας</a>
+        <a href="encyclopedia.html">Εγκυκλοπαίδεια</a>
+        <a href="tel:+35794300800" class="nav-phone">
+          <span class="nav-phone__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </span>
+          94 300 800
+        </a>
+        <a href="index.html#contact" class="btn btn-brand">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Επικοινωνία
+        </a>
+        <div class="lang-toggle" aria-label="Language / Γλώσσα">
+          <span class="lang-toggle__opt lang-toggle__opt--active" aria-current="true">EL</span>
+          <span class="lang-toggle__sep" aria-hidden="true"></span>
+          <a href="en/services.html" class="lang-toggle__opt" hreflang="en">EN</a>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle"
+              aria-label="Άνοιγμα μενού" aria-expanded="false"
+              aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+  <!-- / SHARED HEADER -->
+
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+         ══════════════════════════════════════════ -->
+    <section class="services-hero">
+      <div class="container">
+        <h1>Οι Υπηρεσίες μας</h1>
+        <p class="services-hero__sub">Ολοκληρωμένες λύσεις προστασίας για κάθε ανάγκη - από απεντόμωση μέχρι απολύμανση</p>
+        <div class="hero-badges">
+          <span class="hero-badge">4 Κύριες Υπηρεσίες</span>
+          <span class="hero-badge">Πιστοποιημένα Προϊόντα</span>
+          <span class="hero-badge">Εγγύηση Αποτελέσματος</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         MAIN SERVICES
+         ══════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+
+        <div style="text-align:center;" data-animate>
+          <h2 class="section-title">Κύριες Υπηρεσίες</h2>
+          <p class="section-sub" style="margin:0 auto;">Επιλέξτε την υπηρεσία που χρειάζεστε για λεπτομερείς πληροφορίες και άμεση εξυπηρέτηση</p>
+        </div>
+
+        <div class="services-list">
+
+          <!-- Απεντόμωση — red -->
+          <article class="service-card service-card--red" data-animate>
+            <div class="service-card__header">
+              <h3>Απεντόμωση</h3>
+              <span class="service-card__sub">Εξάλειψη Εντόμων &amp; Παρασίτων</span>
+            </div>
+            <div class="service-card__body">
+              <p>Εξαλείφουμε κάθε είδος εντόμου από τον χώρο σας με πιστοποιημένα, ασφαλή προϊόντα. Η μέθοδος μας στοχεύει άμεσα στην εστία μόλυνσης ενώ προστατεύει ανθρώπους και κατοικίδια.</p>
+              <p class="service-card__checklist-label">Τι Περιλαμβάνει:</p>
+              <ul class="service-card__checklist">
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Εξάλειψη κατσαρίδων και μυρμηγκιών</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Καταπολέμηση εντόμων αποθηκών</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Ασφαλή προϊόντα για οικογένειες</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Αντιμετώπιση μυγών και κουνουπιών</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Προστασία από σκόρους και ψαράκια</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Μακροχρόνια προστασία</li>
+              </ul>
+              <a href="services/apentomosi.html" class="btn btn-card">
+                Μάθετε Περισσότερα
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Μυοκτονία — orange -->
+          <article class="service-card service-card--orange" data-animate data-animate-delay="1">
+            <div class="service-card__header">
+              <h3>Μυοκτονία</h3>
+              <span class="service-card__sub">Έλεγχος Τρωκτικών</span>
+            </div>
+            <div class="service-card__body">
+              <p>Αντιμετωπίζουμε αποτελεσματικά ποντίκια και αρουραίους με ολοκληρωμένα συστήματα ελέγχου. Συνδυάζουμε παγίδες, δολωματικούς σταθμούς και σφράγισμα εισόδων για μόνιμη λύση.</p>
+              <p class="service-card__checklist-label">Τι Περιλαμβάνει:</p>
+              <ul class="service-card__checklist">
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Εξάλειψη ποντικιών και αρουραίων</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Μηχανικές και κολλώδεις παγίδες</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Επαναληπτικοί έλεγχοι</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Ασφαλείς δολωματικοί σταθμοί</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Προστασία παιδιών και κατοικιδίων</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Πρόληψη επανεμφάνισης</li>
+              </ul>
+              <a href="services/myoktonia.html" class="btn btn-card">
+                Μάθετε Περισσότερα
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Απολύμανση — blue -->
+          <article class="service-card service-card--blue" data-animate data-animate-delay="2">
+            <div class="service-card__header">
+              <h3>Απολύμανση</h3>
+              <span class="service-card__sub">Εξουδετέρωση Μικροβίων</span>
+            </div>
+            <div class="service-card__body">
+              <p>Πλήρης απολύμανση χώρων από βακτήρια, ιούς και μύκητες με πιστοποιημένα βιοκτόνα. Ιδανικό για εστιατόρια, ιατρεία, σχολεία και αποθήκες τροφίμων.</p>
+              <p class="service-card__checklist-label">Τι Περιλαμβάνει:</p>
+              <ul class="service-card__checklist">
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Εξουδετέρωση βακτηρίων και ιών</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Νεφελοψεκασμός (fogging)</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Κατάλληλο για όλους τους χώρους</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Ψεκασμός υψηλής πίεσης</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Απολυμαντικά υπεροξειδίου</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Πιστοποιημένα προϊόντα</li>
+              </ul>
+              <a href="services/apolymansi.html" class="btn btn-card">
+                Μάθετε Περισσότερα
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Προστασία Αποθηκών — green -->
+          <article class="service-card service-card--green" data-animate data-animate-delay="3">
+            <div class="service-card__header">
+              <h3>Προστασία Αποθηκών</h3>
+              <span class="service-card__sub">Φύλαξη Προϊόντων &amp; Τροφίμων</span>
+            </div>
+            <div class="service-card__body">
+              <p>Προστατεύουμε αποθήκες τροφίμων, σιλό και αγροτικές εγκαταστάσεις από έντομα αποθηκευμένων προϊόντων. Εξασφαλίζουμε διατήρηση της ποιότητας και πιστοποίηση ασφαλείας.</p>
+              <p class="service-card__checklist-label">Τι Περιλαμβάνει:</p>
+              <ul class="service-card__checklist">
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Προστασία σιτηρών και οσπρίων</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Φερομονικές παγίδες</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Συνεχής παρακολούθηση</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Υποκαπνισμός (fumigation)</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Βιολογικές μέθοδοι</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Συμμόρφωση με πρότυπα HACCP</li>
+              </ul>
+              <a href="services/apothitika.html" class="btn btn-card">
+                Μάθετε Περισσότερα
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         WHY CHOOSE US
+         ══════════════════════════════════════════ -->
+    <section class="section why-section">
+      <div class="container">
+
+        <div style="text-align:center;" data-animate>
+          <h2 class="section-title">Γιατί να Επιλέξετε την Clean Guard;</h2>
+          <p class="section-sub" style="margin:0 auto;">Η εμπειρία, η ποιότητα και η αξιοπιστία μας κάνουν τη διαφορά</p>
+        </div>
+
+        <div class="why-grid">
+
+          <div class="why-item" data-animate>
+            <div class="why-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2L3 6v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V6L12 2z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Πιστοποιημένοι Ειδικοί</h3>
+            <p>Εκπαιδευμένο προσωπικό με πιστοποιήσεις και χρόνια εμπειρίας.</p>
+          </div>
+
+          <div class="why-item" data-animate data-animate-delay="1">
+            <div class="why-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/>
+                <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>
+              </svg>
+            </div>
+            <h3>Ασφαλή Προϊόντα</h3>
+            <p>Εγκεκριμένα βιοκτόνα που προστατεύουν την υγεία σας.</p>
+          </div>
+
+          <div class="why-item" data-animate data-animate-delay="2">
+            <div class="why-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <h3>Γρήγορη Ανταπόκριση</h3>
+            <p>24/7 διαθεσιμότητα για επείγουσες περιπτώσεις.</p>
+          </div>
+
+          <div class="why-item" data-animate data-animate-delay="3">
+            <div class="why-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+            </div>
+            <h3>Εγγύηση Αποτελέσματος</h3>
+            <p>Μακροχρόνια προστασία με εγγύηση επανεπέμβασης.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       SHARED CTA BANNER
+       ══════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-animate>Έτοιμοι να Προστατεύσουμε τον Χώρο σας;</h2>
+      <p data-animate>
+        Επικοινωνήστε μαζί μας σήμερα για δωρεάν εκτίμηση και άμεση εξυπηρέτηση.
+      </p>
+      <div class="cta-banner__actions" data-animate>
+        <a href="index.html#contact" class="btn btn-white">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Επικοινωνία
+        </a>
+        <a href="tel:+35794300800" class="btn btn-translucent-white">
+          94 300 800
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- / SHARED CTA BANNER -->
+
+
+  <!-- ══════════════════════════════════════════
+       SHARED FOOTER
+       ══════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-brand__logo-wrap">
+          <img src="images/logo.png.png" alt="Clean Guard Pest Control Cyprus — λογότυπο" class="footer-brand__logo">
+          <div>
+            <div class="footer-brand__name">Clean Guard</div>
+            <div class="footer-brand__sub">Pest Control Cyprus</div>
+          </div>
+        </div>
+        <p>Επαγγελματικές υπηρεσίες απεντόμωσης και απολύμανσης σε όλη την Κύπρο. Εμπιστευτείτε τους ειδικούς.</p>
+        <div class="footer-brand__contact">
+          <a href="tel:+35794300800" class="footer-brand__contact-item footer-brand__contact-item--phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.93a16 16 0 0 0 6.16 6.16l1.02-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+            94 300 800
+          </a>
+          <a href="mailto:cgcpest@gmail.com" class="footer-brand__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            cgcpest@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Υπηρεσίες</h3>
+        <ul>
+          <li><a href="services.html">Απεντόμωση</a></li>
+          <li><a href="services.html">Απολύμανση</a></li>
+          <li><a href="services.html">Μυοκτονία</a></li>
+          <li><a href="services.html">Απωθητικά</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Εταιρεία</h3>
+        <ul>
+          <li><a href="about.html">Σχετικά με εμάς</a></li>
+          <li><a href="services.html">Οι Υπηρεσίες μας</a></li>
+          <li><a href="encyclopedia.html">Εγκυκλοπαίδεια</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h3>Επικοινωνία</h3>
+        <ul>
+          <li><a href="tel:+35794300800">94 300 800</a></li>
+          <li><a href="mailto:cgcpest@gmail.com">cgcpest@gmail.com</a></li>
+          <li>Κύπρος, Λευκωσία</li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Λεωφ.+Στροβόλου+227+Στρόβολος+2049+Κύπρος" target="_blank" rel="noopener">Λεωφ. Στροβόλου 227, 2ος όροφος,<br>2049 Στρόβολος, Λευκωσία</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <div class="container">
+        <span class="footer-bar__copy">
+          &copy; 2026 Clean Guard Pest Control Cyprus. Όλα τα δικαιώματα διατηρούνται.
+        </span>
+        <div class="footer-bar__policies">
+          <a href="privacy.html">Πολιτική Απορρήτου</a>
+          <a href="terms.html">Όροι Υπηρεσίας</a>
+          <a href="cookies.html">Πολιτική Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / SHARED FOOTER -->
+
+  <script src="js/main.js"></script>
+</body>
+</html>
