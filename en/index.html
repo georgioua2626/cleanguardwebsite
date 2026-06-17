@@ -1547,13 +1547,7 @@
 
     function measureSetWidth() {
       void track.offsetWidth; // force reflow so all image dimensions are committed
-      var items = track.querySelectorAll('.m-carousel__item');
-      var total = 0;
-      for (var i = 0; i < 8; i++) {
-        var s = window.getComputedStyle(items[i]);
-        total += items[i].offsetWidth + (parseFloat(s.marginRight) || 0);
-      }
-      return total;
+      return track.scrollWidth / 2; // exact half-track — no per-item rounding drift
     }
 
     function step(ts) {
