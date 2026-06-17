@@ -1603,7 +1603,19 @@
 
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', onResize);
-    window.addEventListener('load', init);
+    window.addEventListener('load', function () {
+      if (reducedMotion.matches || !mobileQuery.matches) return;
+      var imgs = Array.prototype.slice.call(track.querySelectorAll('.m-carousel__item'), 0, 8);
+      Promise.all(imgs.map(function (img) {
+        if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+        return typeof img.decode === 'function'
+          ? img.decode().catch(function () {})
+          : new Promise(function (res) {
+              img.addEventListener('load', res, { once: true });
+              img.addEventListener('error', res, { once: true });
+            });
+      })).then(init);
+    });
   })();
   </script>
 
