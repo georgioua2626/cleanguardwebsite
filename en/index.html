@@ -839,21 +839,18 @@
       mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
     }
     .m-carousel__track {
-      display: flex; width: max-content;
-      animation: m-carousel-scroll 28s linear infinite;
-      will-change: transform;
-      -webkit-backface-visibility: hidden; backface-visibility: hidden;
+      display: flex; width: max-content; will-change: transform;
+      opacity: 0; transition: opacity .4s ease;
     }
+    .m-carousel__track.is-ready { opacity: 1; }
     .m-carousel__item {
       width: 115px; height: 210px; margin-right: 14px;
       flex-shrink: 0; object-fit: cover; border-radius: 14px; display: block;
     }
-    @keyframes m-carousel-scroll {
-      from { transform: translate3d(0, 0, 0); }
-      to   { transform: translate3d(-1032px, 0, 0); }
-    }
     @media (min-width: 769px) { .m-carousel { display: none !important; } }
-    @media (prefers-reduced-motion: reduce) { .m-carousel__track { animation: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .m-carousel__track { opacity: 1; transform: none !important; }
+    }
     @media (max-width: 900px) {
       .m-carousel { padding-bottom: 8px; }
       #services.section { padding-top: 32px; }
@@ -1529,6 +1526,87 @@
         }
       );
     });
+  </script>
+
+  <script>
+  /* Mobile Image Carousel — self-correcting rAF loop */
+  (function(){
+    var track = document.querySelector('.m-carousel__track');
+    if (!track) return;
+    if (window.matchMedia('(min-width: 769px)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { track.classList.add('is-ready'); return; }
+
+    var items = track.querySelectorAll('.m-carousel__item');
+    var loopDistance = 0;
+    var pos = 0;
+    var speed = 0;
+    var lastTs = null;
+    var frames = 0;
+    var running = false;
+
+    function measure(){
+      if (items.length >= 9){
+        loopDistance = items[8].offsetLeft;
+      } else {
+        loopDistance = track.scrollWidth / 2;
+      }
+      speed = loopDistance / 28;
+    }
+
+    function step(ts){
+      if (!running) return;
+      if (lastTs === null){ lastTs = ts; requestAnimationFrame(step); return; }
+      var delta = (ts - lastTs) / 1000;
+      lastTs = ts;
+      if (delta > 0.1) { requestAnimationFrame(step); return; }
+      pos += speed * delta;
+      if (pos >= loopDistance) pos -= loopDistance;
+      track.style.transform = 'translate3d(' + (-pos) + 'px,0,0)';
+      frames++;
+      if (frames === 2) track.classList.add('is-ready');
+      requestAnimationFrame(step);
+    }
+
+    function start(){
+      measure();
+      running = true; lastTs = null; frames = 0;
+      requestAnimationFrame(step);
+    }
+
+    function whenImagesReady(cb){
+      var imgs = Array.prototype.slice.call(items);
+      var pending = imgs.length;
+      if (!pending) return cb();
+      imgs.forEach(function(img){
+        var done = function(){ if(--pending === 0) cb(); };
+        if (img.complete && img.naturalWidth) { done(); }
+        else { img.addEventListener('load', done); img.addEventListener('error', done); }
+      });
+    }
+
+    window.addEventListener('load', function(){
+      whenImagesReady(function(){
+        void track.offsetWidth;
+        start();
+      });
+    });
+
+    var rt;
+    function onResize(){
+      clearTimeout(rt);
+      rt = setTimeout(function(){
+        if (window.matchMedia('(min-width: 769px)').matches){ running = false; return; }
+        void track.offsetWidth; measure(); pos = pos % loopDistance;
+      }, 200);
+    }
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onResize);
+
+    document.addEventListener('visibilitychange', function(){
+      if (document.hidden){ running = false; }
+      else if (window.matchMedia('(max-width: 768px)').matches){ running = true; lastTs = null; requestAnimationFrame(step); }
+    });
+  })();
   </script>
 
 </body>
