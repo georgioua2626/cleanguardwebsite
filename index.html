@@ -841,13 +841,15 @@
     .m-carousel__track {
       display: flex; width: max-content; will-change: transform;
       transform: translateZ(0); backface-visibility: hidden;
+      opacity: 0; transition: opacity 0.4s ease;
     }
+    .m-carousel__track.is-ready { opacity: 1; }
     .m-carousel__item {
       width: 115px; height: 210px; margin-right: 14px;
       flex-shrink: 0; object-fit: cover; border-radius: 14px; display: block;
     }
     @media (min-width: 769px) { .m-carousel { display: none !important; } }
-    @media (prefers-reduced-motion: reduce) { .m-carousel__track { transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .m-carousel__track { transform: none; opacity: 1; transition: none; } }
     @media (max-width: 900px) {
       .m-carousel { padding-bottom: 8px; }
       #services.section { padding-top: 32px; }
@@ -1041,23 +1043,23 @@
       <div class="m-carousel__viewport">
         <div class="m-carousel__track" id="m-carousel-track">
           <!-- SET 1 of 2 -->
-          <img class="m-carousel__item" src="images/fumigation.png" alt="Fumigation" width="115" height="210">
-          <img class="m-carousel__item" src="images/flytrap.png" alt="Fly trap" width="115" height="210">
-          <img class="m-carousel__item" src="images/trap.png" alt="Trap" width="115" height="210">
-          <img class="m-carousel__item" src="images/work1.png" alt="Work" width="115" height="210">
-          <img class="m-carousel__item" src="images/wood.png" alt="Wood treatment" width="115" height="210">
-          <img class="m-carousel__item" src="images/work2.png" alt="Work" width="115" height="210">
-          <img class="m-carousel__item" src="images/magnets.png" alt="Magnets" width="115" height="210">
-          <img class="m-carousel__item" src="images/2persons.png" alt="Team" width="115" height="210">
+          <img class="m-carousel__item" src="images/fumigation.png" alt="Fumigation" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/flytrap.png" alt="Fly trap" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/trap.png" alt="Trap" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/work1.png" alt="Work" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/wood.png" alt="Wood treatment" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/work2.png" alt="Work" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/magnets.png" alt="Magnets" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/2persons.png" alt="Team" width="115" height="210" loading="eager" decoding="async">
           <!-- SET 2 of 2 (identical duplicates for seamless loop) -->
-          <img class="m-carousel__item" src="images/fumigation.png" alt="Fumigation" width="115" height="210">
-          <img class="m-carousel__item" src="images/flytrap.png" alt="Fly trap" width="115" height="210">
-          <img class="m-carousel__item" src="images/trap.png" alt="Trap" width="115" height="210">
-          <img class="m-carousel__item" src="images/work1.png" alt="Work" width="115" height="210">
-          <img class="m-carousel__item" src="images/wood.png" alt="Wood treatment" width="115" height="210">
-          <img class="m-carousel__item" src="images/work2.png" alt="Work" width="115" height="210">
-          <img class="m-carousel__item" src="images/magnets.png" alt="Magnets" width="115" height="210">
-          <img class="m-carousel__item" src="images/2persons.png" alt="Team" width="115" height="210">
+          <img class="m-carousel__item" src="images/fumigation.png" alt="Fumigation" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/flytrap.png" alt="Fly trap" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/trap.png" alt="Trap" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/work1.png" alt="Work" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/wood.png" alt="Wood treatment" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/work2.png" alt="Work" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/magnets.png" alt="Magnets" width="115" height="210" loading="eager" decoding="async">
+          <img class="m-carousel__item" src="images/2persons.png" alt="Team" width="115" height="210" loading="eager" decoding="async">
         </div>
       </div>
     </section>
@@ -1537,17 +1539,20 @@
     var carousel = document.querySelector('.m-carousel');
     if (!carousel) return;
 
-    var track = document.getElementById('m-carousel-track');
+    var track        = document.getElementById('m-carousel-track');
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     var mobileQuery  = window.matchMedia('(max-width: 768px)');
 
-    var pos      = 0;
-    var setWidth = 0;
-    var lastTs   = null;
-    var rafId    = null;
-    var running  = false;
+    var pos        = 0;
+    var setWidth   = 0;
+    var lastTs     = null;
+    var rafId      = null;
+    var running    = false;
+    var frameCount = 0;
+    var isReady    = false;
 
     function measureSetWidth() {
+      void track.offsetWidth; // force reflow so all image dimensions are committed
       var items = track.querySelectorAll('.m-carousel__item');
       var total = 0;
       for (var i = 0; i < 8; i++) {
@@ -1561,9 +1566,18 @@
       if (!running) return;
       if (lastTs !== null) {
         var delta = (ts - lastTs) / 1000;
-        pos += 28 * delta;
-        if (pos >= setWidth) pos -= setWidth;
-        track.style.transform = 'translateX(' + (-pos) + 'px)';
+        if (delta < 0.1) { // clamp: skip frames > 100ms (GC pause, tab re-focus stall)
+          pos += 28 * delta;
+          if (pos >= setWidth) pos -= setWidth;
+          track.style.transform = 'translateX(' + (-pos) + 'px)';
+          if (!isReady) {
+            frameCount++;
+            if (frameCount >= 2) {
+              isReady = true;
+              track.classList.add('is-ready'); // fade in only after 2 clean frames
+            }
+          }
+        }
       }
       lastTs = ts;
       rafId = requestAnimationFrame(step);
