@@ -832,24 +832,27 @@
     }
 
     /* ── Mobile Image Carousel ── */
-    .m-carousel { padding: 16px 0; background: transparent; }
+    .m-carousel { padding: 16px 0; overflow: hidden; }
     .m-carousel__viewport {
       overflow: hidden; position: relative;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
     }
     .m-carousel__track {
-      display: flex; width: max-content; will-change: transform;
-      transform: translateZ(0); backface-visibility: hidden;
-      opacity: 0; transition: opacity 0.4s ease;
+      display: flex; width: max-content;
+      animation: m-carousel-scroll 28s linear infinite;
+      will-change: transform;
     }
-    .m-carousel__track.is-ready { opacity: 1; }
     .m-carousel__item {
       width: 115px; height: 210px; margin-right: 14px;
       flex-shrink: 0; object-fit: cover; border-radius: 14px; display: block;
     }
+    @keyframes m-carousel-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
     @media (min-width: 769px) { .m-carousel { display: none !important; } }
-    @media (prefers-reduced-motion: reduce) { .m-carousel__track { transform: none; opacity: 1; transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .m-carousel__track { animation: none; } }
     @media (max-width: 900px) {
       .m-carousel { padding-bottom: 8px; }
       #services.section { padding-top: 32px; }
@@ -1036,7 +1039,7 @@
          ══════════════════════════════════════════ -->
     <section class="m-carousel" aria-hidden="true">
       <div class="m-carousel__viewport">
-        <div class="m-carousel__track" id="m-carousel-track">
+        <div class="m-carousel__track">
           <!-- SET 1 of 2 -->
           <img class="m-carousel__item" src="../images/fumigation.png" alt="Fumigation" width="115" height="210" loading="eager" decoding="async">
           <img class="m-carousel__item" src="../images/flytrap.png" alt="Fly trap" width="115" height="210" loading="eager" decoding="async">
@@ -1525,100 +1528,6 @@
         }
       );
     });
-  </script>
-
-  <script>
-  /* Mobile Image Carousel — rAF loop */
-  (function () {
-    var carousel = document.querySelector('.m-carousel');
-    if (!carousel) return;
-
-    var track        = document.getElementById('m-carousel-track');
-    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var mobileQuery  = window.matchMedia('(max-width: 768px)');
-
-    var pos        = 0;
-    var setWidth   = 0;
-    var lastTs     = null;
-    var rafId      = null;
-    var running    = false;
-    var frameCount = 0;
-    var isReady    = false;
-
-    function measureSetWidth() {
-      void track.offsetWidth; // force reflow so all image dimensions are committed
-      return track.scrollWidth / 2; // exact half-track — no per-item rounding drift
-    }
-
-    function step(ts) {
-      if (!running) return;
-      if (lastTs !== null) {
-        var delta = (ts - lastTs) / 1000;
-        if (delta < 0.1) { // clamp: skip frames > 100ms (GC pause, tab re-focus stall)
-          pos += 28 * delta;
-          if (pos >= setWidth) pos -= setWidth;
-          track.style.transform = 'translateX(' + (-pos) + 'px)';
-          if (!isReady) {
-            frameCount++;
-            if (frameCount >= 2) {
-              isReady = true;
-              track.classList.add('is-ready'); // fade in only after 2 clean frames
-            }
-          }
-        }
-      }
-      lastTs = ts;
-      rafId = requestAnimationFrame(step);
-    }
-
-    function start() {
-      if (running) return;
-      running = true;
-      lastTs  = null;
-      rafId   = requestAnimationFrame(step);
-    }
-
-    function stop() {
-      running = false;
-      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-      lastTs = null;
-    }
-
-    function init() {
-      if (reducedMotion.matches || !mobileQuery.matches) { stop(); return; }
-      setWidth = measureSetWidth();
-      if (setWidth > 0) start();
-    }
-
-    var resizeTimer;
-    function onResize() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () {
-        stop(); pos = 0; track.style.transform = ''; init();
-      }, 150);
-    }
-
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) { stop(); }
-      else if (mobileQuery.matches && !reducedMotion.matches) { start(); }
-    });
-
-    window.addEventListener('resize', onResize);
-    window.addEventListener('orientationchange', onResize);
-    window.addEventListener('load', function () {
-      if (reducedMotion.matches || !mobileQuery.matches) return;
-      var imgs = Array.prototype.slice.call(track.querySelectorAll('.m-carousel__item'), 0, 8);
-      Promise.all(imgs.map(function (img) {
-        if (img.complete && img.naturalWidth > 0) return Promise.resolve();
-        return typeof img.decode === 'function'
-          ? img.decode().catch(function () {})
-          : new Promise(function (res) {
-              img.addEventListener('load', res, { once: true });
-              img.addEventListener('error', res, { once: true });
-            });
-      })).then(init);
-    });
-  })();
   </script>
 
 </body>
