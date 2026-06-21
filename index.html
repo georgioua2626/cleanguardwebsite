@@ -1380,8 +1380,8 @@
               </div>
 
               <div class="form-group form-group--full">
-                <label for="message">Μήνυμα</label>
-                <textarea id="message" name="message" rows="4" placeholder="Περιγράψτε το πρόβλημα ή τις ανάγκες σας…"></textarea>
+                <label for="message">Μήνυμα <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="4" placeholder="Περιγράψτε το πρόβλημα ή τις ανάγκες σας…" required></textarea>
                 <span class="form-error" role="alert"></span>
               </div>
 
@@ -1532,19 +1532,72 @@
   <script src="js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      window.CleanGuard.initFormValidation(
-        document.getElementById('contact-form'),
-        function (form) {
-          form.innerHTML =
-            '<div class="form-success">' +
-              '<div class="form-success__icon">' +
-                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>' +
-              '</div>' +
-              '<h3>Το μήνυμά σας στάλθηκε!</h3>' +
-              '<p>Θα επικοινωνήσουμε μαζί σας εντός 2 ωρών. Για επείγοντα καλέστε <a href="tel:+35794300800" style="color:var(--brand);font-weight:600;">94 300 800</a>.</p>' +
-            '</div>';
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+
+      // Live validation on blur/input via CleanGuard utilities
+      form.querySelectorAll('input, textarea, select').forEach(function (field) {
+        field.addEventListener('blur', function () { window.CleanGuard.validateField(field); });
+        field.addEventListener('input', function () {
+          if (field.classList.contains('invalid')) window.CleanGuard.validateField(field);
+        });
+      });
+
+      // Error banner injected below submit button
+      var errBanner = document.createElement('p');
+      errBanner.style.cssText = 'margin-top:0.75rem;font-size:0.875rem;color:#dc2626;display:none;';
+      form.appendChild(errBanner);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!window.CleanGuard.validateForm(form)) {
+          var first = form.querySelector('.invalid');
+          if (first) first.focus();
+          return;
         }
-      );
+
+        var btn = form.querySelector('[type="submit"]');
+        var savedHTML = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = 'Αποστολή…';
+        errBanner.style.display = 'none';
+
+        var data = {
+          name:    form.querySelector('[name="name"]').value.trim(),
+          email:   form.querySelector('[name="email"]').value.trim(),
+          phone:   form.querySelector('[name="phone"]').value.trim(),
+          service: form.querySelector('[name="service"]').value,
+          area:    form.querySelector('[name="area"]').value,
+          message: form.querySelector('[name="message"]').value.trim()
+        };
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (json.ok) {
+            form.innerHTML =
+              '<div class="form-success">' +
+                '<div class="form-success__icon">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>' +
+                '</div>' +
+                '<h3>Το μήνυμά σας στάλθηκε!</h3>' +
+                '<p>Θα επικοινωνήσουμε μαζί σας εντός 2 ωρών. Για επείγοντα καλέστε <a href="tel:+35794300800" style="color:var(--brand);font-weight:600;">94 300 800</a>.</p>' +
+              '</div>';
+          } else {
+            throw new Error(json.message || 'error');
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.innerHTML = savedHTML;
+          errBanner.textContent = 'Κάτι πήγε στραβά. Δοκιμάστε ξανά ή καλέστε στο 94 300 800.';
+          errBanner.style.display = 'block';
+        });
+      });
     });
   </script>
 
