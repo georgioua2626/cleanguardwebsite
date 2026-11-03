@@ -110,6 +110,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cgcpestcontrol.com/services/apothitika.html"/>
   </url>
   <url>
+    <loc>https://www.cgcpestcontrol.com/services/tzamaries.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.cgcpestcontrol.com/services/tzamaries.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cgcpestcontrol.com/en/services/tzamaries.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cgcpestcontrol.com/services/tzamaries.html"/>
+  </url>
+  <url>
+    <loc>https://www.cgcpestcontrol.com/en/services/tzamaries.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="el" href="https://www.cgcpestcontrol.com/services/tzamaries.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.cgcpestcontrol.com/en/services/tzamaries.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.cgcpestcontrol.com/services/tzamaries.html"/>
+  </url>
+  <url>
     <loc>https://www.cgcpestcontrol.com/about.html</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>

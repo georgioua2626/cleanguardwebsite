@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services | Pest Management Cyprus | Clean Guard</title>
-  <meta name="description" content="Comprehensive insect control, rodent control, disinfection and warehouse protection services in Nicosia and across Cyprus. Fast response — 94 300 800.">
+  <meta name="description" content="Comprehensive insect control, rodent control, disinfection, pest repellent and window cleaning services in Nicosia and across Cyprus. Fast response — 94 300 800.">
   <meta property="og:title" content="Our Services | Pest Management Cyprus | Clean Guard">
-  <meta property="og:description" content="Comprehensive insect control, rodent control, disinfection and warehouse protection services in Nicosia and across Cyprus. Fast response — 94 300 800.">
+  <meta property="og:description" content="Comprehensive insect control, rodent control, disinfection, pest repellent and window cleaning services in Nicosia and across Cyprus. Fast response — 94 300 800.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_CY">
   <meta property="og:site_name" content="Clean Guard Pest Control Cyprus">
   <meta property="og:image" content="https://www.cgcpestcontrol.com/images/logo.png.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Our Services | Pest Management Cyprus | Clean Guard">
-  <meta name="twitter:description" content="Comprehensive insect control, rodent control, disinfection and warehouse protection services in Nicosia and across Cyprus. Fast response — 94 300 800.">
+  <meta name="twitter:description" content="Comprehensive insect control, rodent control, disinfection, pest repellent and window cleaning services in Nicosia and across Cyprus. Fast response — 94 300 800.">
   <link rel="canonical" href="https://www.cgcpestcontrol.com/en/services.html">
   <link rel="alternate" hreflang="el" href="https://www.cgcpestcontrol.com/services.html">
   <link rel="alternate" hreflang="en" href="https://www.cgcpestcontrol.com/en/services.html">
@@ -77,13 +77,20 @@
     .service-card--orange { --card-color: var(--cat-orange); --card-light: #FFF7ED; }
     .service-card--blue   { --card-color: var(--cat-blue);   --card-light: #EFF6FF; }
     .service-card--green  { --card-color: var(--brand);      --card-light: var(--brand-light); }
+    .service-card--teal   { --card-color: #0E9CAE;           --card-light: #ECFAFC; }
 
     /* ── Services List ── */
+    /* Flex-wrap so a partial last row centres; cards stretch to equal height per row */
     .services-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.75rem;
       margin-top: 3rem;
+    }
+    .services-list > .service-card {
+      flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
+      min-width: 0;
     }
     .service-card {
       background: var(--surface);
@@ -132,6 +139,7 @@
       gap: 0.55rem 1.5rem;
       margin-bottom: 1.75rem;
       flex: 1;
+      align-content: start;
     }
     .service-card__checklist li {
       display: flex;
@@ -201,8 +209,21 @@
     .btn-translucent-white:hover { background: rgba(255,255,255,.28); }
 
     /* ── Responsive ── */
+    /* 3-column layout: single-column checklist; headers sized for a 2-line title so bodies align */
+    @media (min-width: 1101px) {
+      .service-card__checklist { grid-template-columns: 1fr; }
+      .service-card__header {
+        min-height: 7.75rem; /* 1.5rem×2 padding + 2 h3 lines + sub-line = 124px */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 1100px) {
+      .services-list > .service-card { flex-basis: calc((100% - 1.75rem) / 2); }
+    }
     @media (max-width: 900px) {
-      .services-list { grid-template-columns: 1fr; }
+      .services-list > .service-card { flex-basis: 100%; }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
@@ -272,7 +293,7 @@
         <h1>Our Services</h1>
         <p class="services-hero__sub">Comprehensive protection solutions for every need — from insect control to disinfection</p>
         <div class="hero-badges">
-          <span class="hero-badge">4 Core Services</span>
+          <span class="hero-badge">5 Core Services</span>
           <span class="hero-badge">Certified Products</span>
           <span class="hero-badge">Results Guaranteed</span>
         </div>
@@ -364,24 +385,48 @@
             </div>
           </article>
 
-          <!-- Warehouse Protection — green -->
+          <!-- Pest Repellents — green -->
           <article class="service-card service-card--green" data-animate data-animate-delay="3">
             <div class="service-card__header">
-              <h3>Warehouse Protection</h3>
-              <span class="service-card__sub">Stored Product &amp; Food Safety</span>
+              <h3>Pest Repellents</h3>
+              <span class="service-card__sub">Natural &amp; Chemical</span>
             </div>
             <div class="service-card__body">
-              <p>We protect food warehouses, silos and agricultural facilities from stored-product insects. We ensure quality preservation and safety certification.</p>
+              <p>We apply natural and chemical repellents for animals and insects in homes, businesses and gardens. With a focus on prevention.</p>
               <p class="service-card__checklist-label">What's Included:</p>
               <ul class="service-card__checklist">
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Grain and legume protection</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Pheromone traps</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Continuous monitoring</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Fumigation</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Biological methods</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>HACCP compliance</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Natural and chemical repellents</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Specialist techniques and quality products</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Clean, safe space with focus on prevention</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Protection for homes, businesses and gardens</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Preventive approach to pest management</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Long-term protection solutions</li>
               </ul>
               <a href="services/apothitika.html" class="btn btn-card">
+                Learn More
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Window & Storefront Cleaning — teal -->
+          <article class="service-card service-card--teal" data-animate data-animate-delay="4">
+            <div class="service-card__header">
+              <h3>Window &amp; Storefront Cleaning</h3>
+              <span class="service-card__sub">Homes &amp; Businesses</span>
+            </div>
+            <div class="service-card__body">
+              <p>We clean windows, storefronts, frames and glass railings in homes, shops and offices, for a clean, bright look.</p>
+              <p class="service-card__checklist-label">What's Included:</p>
+              <ul class="service-card__checklist">
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Windows and storefronts</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Frames and rails</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Sliding doors</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Glass railings</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>One-off or regular cleaning</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Homes, shops and offices</li>
+              </ul>
+              <a href="services/tzamaries.html" class="btn btn-card">
                 Learn More
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
               </a>
@@ -513,6 +558,7 @@
           <li><a href="services/apolymansi.html">Disinfection</a></li>
           <li><a href="services/myoktonia.html">Rodent Control</a></li>
           <li><a href="services/apothitika.html">Pest Repellents</a></li>
+          <li><a href="services/tzamaries.html">Window &amp; Storefront Cleaning</a></li>
         </ul>
       </div>
 

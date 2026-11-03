@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="el_GR">
   <meta property="og:site_name" content="Clean Guard Pest Control Cyprus">
-  <meta property="og:image" content="images/logo.png.png">
+  <meta property="og:image" content="https://www.cgcpestcontrol.com/images/logo.png.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Απεντόμωση & Απολύμανση Λευκωσία | Clean Guard">
   <meta name="twitter:description" content="Επαγγελματική απεντόμωση & απολύμανση σε Λευκωσία και όλη την Κύπρο. Πιστοποιημένοι τεχνικοί, 24/7 εξυπηρέτηση, εγγύηση αποτελεσμάτων. Καλέστε 94 300 800.">
@@ -356,10 +356,16 @@
     }
 
     /* ── Services ── */
+    /* Flex-wrap so a partial last row centres; cards stretch to equal height per row */
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
+    }
+    .services-grid > .service-card {
+      flex: 0 0 calc((100% - 2 * 2rem) / 3);
+      min-width: 0;
     }
 
     .service-card {
@@ -425,8 +431,11 @@
       font-size: 0.875rem;
     }
 
+    @media (max-width: 1024px) {
+      .services-grid > .service-card { flex-basis: calc((100% - 2rem) / 2); }
+    }
     @media (max-width: 700px) {
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid > .service-card { flex-basis: 100%; }
     }
 
     /* ── Rating strip ── */
@@ -1150,6 +1159,19 @@
             <a href="services.html" class="btn btn-outline">Περισσότερα</a>
           </div>
 
+          <!-- Καθαρισμός Τζαμαριών & Βιτρινών -->
+          <div class="service-card" data-animate data-animate-delay="3">
+            <img src="images/tzamaries-icon-placeholder.svg" alt="Καθαρισμός Τζαμαριών &amp; Βιτρινών" class="card-icon-img service-icon-img">
+            <h3>Καθαρισμός Τζαμαριών &amp; Βιτρινών</h3>
+            <p>Καθαρά τζάμια και βιτρίνες για σπίτια και επιχειρήσεις, εφάπαξ ή σε τακτική βάση.</p>
+            <ul class="card-checklist">
+              <li>Τζάμια, βιτρίνες και κουφώματα</li>
+              <li>Συρόμενες πόρτες και γυάλινα κάγκελα</li>
+              <li>Εφάπαξ ή τακτικός καθαρισμός</li>
+            </ul>
+            <a href="services.html" class="btn btn-outline">Περισσότερα</a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1362,6 +1384,7 @@
                   <option value="apolymasi">Απολύμανση</option>
                   <option value="myoktonia">Μυοκτονία</option>
                   <option value="apothetika">Απωθητικά</option>
+                  <option value="tzamaries">Καθαρισμός Τζαμαριών &amp; Βιτρινών</option>
                   <option value="allo">Άλλο</option>
                 </select>
                 <span class="form-error" role="alert"></span>
@@ -1491,6 +1514,7 @@
           <li><a href="services.html">Απολύμανση</a></li>
           <li><a href="services.html">Μυοκτονία</a></li>
           <li><a href="services.html">Απωθητικά</a></li>
+          <li><a href="services/tzamaries.html">Καθαρισμός Τζαμαριών &amp; Βιτρινών</a></li>
         </ul>
       </div>
 

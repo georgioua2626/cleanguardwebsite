@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Υπηρεσίες Απεντόμωσης Κύπρος | Clean Guard</title>
-  <meta name="description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης και προστασίας αποθηκών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
+  <meta name="description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης, απωθητικών και καθαρισμού τζαμαριών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
   <meta property="og:title" content="Υπηρεσίες Απεντόμωσης Κύπρος | Clean Guard">
-  <meta property="og:description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης και προστασίας αποθηκών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
+  <meta property="og:description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης, απωθητικών και καθαρισμού τζαμαριών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="el_GR">
   <meta property="og:site_name" content="Clean Guard Pest Control Cyprus">
-  <meta property="og:image" content="images/logo.png.png">
+  <meta property="og:image" content="https://www.cgcpestcontrol.com/images/logo.png.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Υπηρεσίες Απεντόμωσης Κύπρος | Clean Guard">
-  <meta name="twitter:description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης και προστασίας αποθηκών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
+  <meta name="twitter:description" content="Ολοκληρωμένες υπηρεσίες απεντόμωσης, μυοκτονίας, απολύμανσης, απωθητικών και καθαρισμού τζαμαριών σε Λευκωσία και Κύπρο. Άμεση εξυπηρέτηση — 94 300 800.">
   <link rel="canonical" href="https://www.cgcpestcontrol.com/services.html">
   <link rel="alternate" hreflang="el" href="https://www.cgcpestcontrol.com/services.html">
   <link rel="alternate" hreflang="en" href="https://www.cgcpestcontrol.com/en/services.html">
@@ -77,13 +77,20 @@
     .service-card--orange { --card-color: var(--cat-orange); --card-light: #FFF7ED; }
     .service-card--blue   { --card-color: var(--cat-blue);   --card-light: #EFF6FF; }
     .service-card--green  { --card-color: var(--brand);      --card-light: var(--brand-light); }
+    .service-card--teal   { --card-color: #0E9CAE;           --card-light: #ECFAFC; }
 
     /* ── Services List ── */
+    /* Flex-wrap so a partial last row centres; cards stretch to equal height per row */
     .services-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.75rem;
       margin-top: 3rem;
+    }
+    .services-list > .service-card {
+      flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
+      min-width: 0;
     }
     .service-card {
       background: var(--surface);
@@ -132,6 +139,7 @@
       gap: 0.55rem 1.5rem;
       margin-bottom: 1.75rem;
       flex: 1;
+      align-content: start;
     }
     .service-card__checklist li {
       display: flex;
@@ -169,13 +177,15 @@
     .why-section { background: var(--surface); }
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1.5rem;
       margin-top: 3rem;
     }
     .why-item {
       text-align: center;
       padding: 2rem 1.5rem;
+      min-width: 0;
+      overflow-wrap: break-word;
     }
     .why-item__icon {
       width: 60px;
@@ -201,14 +211,28 @@
     .btn-translucent-white:hover { background: rgba(255,255,255,.28); }
 
     /* ── Responsive ── */
+    /* 3-column layout: single-column checklist; headers sized for a 2-line title so bodies align */
+    @media (min-width: 1101px) {
+      .service-card__checklist { grid-template-columns: 1fr; }
+      .service-card__header {
+        min-height: 7.75rem; /* 1.5rem×2 padding + 2 h3 lines + sub-line = 124px */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    @media (max-width: 1100px) {
+      .services-list > .service-card { flex-basis: calc((100% - 1.75rem) / 2); }
+    }
     @media (max-width: 900px) {
-      .services-list { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-list > .service-card { flex-basis: 100%; }
+      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
       .service-card__checklist { grid-template-columns: 1fr; }
       .service-card__body { padding: 1.25rem; }
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .why-item { padding-inline: 0.5rem; }
     }
   </style>
 </head>
@@ -272,7 +296,7 @@
         <h1>Οι Υπηρεσίες μας</h1>
         <p class="services-hero__sub">Ολοκληρωμένες λύσεις προστασίας για κάθε ανάγκη - από απεντόμωση μέχρι απολύμανση</p>
         <div class="hero-badges">
-          <span class="hero-badge">4 Κύριες Υπηρεσίες</span>
+          <span class="hero-badge">5 Κύριες Υπηρεσίες</span>
           <span class="hero-badge">Πιστοποιημένα Προϊόντα</span>
           <span class="hero-badge">Εγγύηση Αποτελέσματος</span>
         </div>
@@ -364,24 +388,48 @@
             </div>
           </article>
 
-          <!-- Προστασία Αποθηκών — green -->
+          <!-- Απωθητικά — green -->
           <article class="service-card service-card--green" data-animate data-animate-delay="3">
             <div class="service-card__header">
-              <h3>Προστασία Αποθηκών</h3>
-              <span class="service-card__sub">Φύλαξη Προϊόντων &amp; Τροφίμων</span>
+              <h3>Απωθητικά</h3>
+              <span class="service-card__sub">Φυσικά &amp; Χημικά</span>
             </div>
             <div class="service-card__body">
-              <p>Προστατεύουμε αποθήκες τροφίμων, σιλό και αγροτικές εγκαταστάσεις από έντομα αποθηκευμένων προϊόντων. Εξασφαλίζουμε διατήρηση της ποιότητας και πιστοποίηση ασφαλείας.</p>
+              <p>Εφαρμόζουμε φυσικά και χημικά απωθητικά για ζώα και έντομα σε σπίτια, επιχειρήσεις και κήπους. Με έμφαση στην πρόληψη.</p>
               <p class="service-card__checklist-label">Τι Περιλαμβάνει:</p>
               <ul class="service-card__checklist">
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Προστασία σιτηρών και οσπρίων</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Φερομονικές παγίδες</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Συνεχής παρακολούθηση</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Υποκαπνισμός (fumigation)</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Βιολογικές μέθοδοι</li>
-                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Συμμόρφωση με πρότυπα HACCP</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Φυσικά και χημικά απωθητικά</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Εξειδικευμένες τεχνικές και ποιοτικά προϊόντα</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Καθαρό και ασφαλή χώρο με έμφαση στην πρόληψη</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Προστασία για σπίτια, επιχειρήσεις και κήπους</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Προληπτική προσέγγιση στον έλεγχο παρασίτων</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Μακροχρόνια λύσεις προστασίας</li>
               </ul>
               <a href="services/apothitika.html" class="btn btn-card">
+                Μάθετε Περισσότερα
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Καθαρισμός Τζαμαριών & Βιτρινών — teal -->
+          <article class="service-card service-card--teal" data-animate data-animate-delay="4">
+            <div class="service-card__header">
+              <h3>Καθαρισμός Τζαμαριών &amp; Βιτρινών</h3>
+              <span class="service-card__sub">Σπίτια &amp; Επιχειρήσεις</span>
+            </div>
+            <div class="service-card__body">
+              <p>Καθαρίζουμε τζάμια, βιτρίνες, κουφώματα και γυάλινα κάγκελα σε σπίτια, καταστήματα και γραφεία, για καθαρή και φωτεινή εικόνα του χώρου σας.</p>
+              <p class="service-card__checklist-label">Τι Περιλαμβάνει:</p>
+              <ul class="service-card__checklist">
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Τζάμια και βιτρίνες</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Κουφώματα και ράγες</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Συρόμενες πόρτες</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Γυάλινα κάγκελα</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Εφάπαξ ή τακτικός καθαρισμός</li>
+                <li><span class="check-icon"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg></span>Σπίτια, καταστήματα και γραφεία</li>
+              </ul>
+              <a href="services/tzamaries.html" class="btn btn-card">
                 Μάθετε Περισσότερα
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
               </a>
@@ -513,6 +561,7 @@
           <li><a href="services.html">Απολύμανση</a></li>
           <li><a href="services.html">Μυοκτονία</a></li>
           <li><a href="services.html">Απωθητικά</a></li>
+          <li><a href="services/tzamaries.html">Καθαρισμός Τζαμαριών &amp; Βιτρινών</a></li>
         </ul>
       </div>
 

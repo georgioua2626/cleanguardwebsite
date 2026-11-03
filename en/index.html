@@ -356,10 +356,16 @@
     }
 
     /* ── Services ── */
+    /* Flex-wrap so a partial last row centres; cards stretch to equal height per row */
     .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
+    }
+    .services-grid > .service-card {
+      flex: 0 0 calc((100% - 2 * 2rem) / 3);
+      min-width: 0;
     }
 
     .service-card {
@@ -425,8 +431,11 @@
       font-size: 0.875rem;
     }
 
+    @media (max-width: 1024px) {
+      .services-grid > .service-card { flex-basis: calc((100% - 2rem) / 2); }
+    }
     @media (max-width: 700px) {
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid > .service-card { flex-basis: 100%; }
     }
 
     /* ── Rating strip ── */
@@ -1145,6 +1154,19 @@
             <a href="services.html" class="btn btn-outline">Learn More</a>
           </div>
 
+          <!-- Window & Storefront Cleaning -->
+          <div class="service-card" data-animate data-animate-delay="3">
+            <img src="../images/tzamaries-icon-placeholder.svg" alt="Window &amp; Storefront Cleaning" class="card-icon-img service-icon-img">
+            <h3>Window &amp; Storefront Cleaning</h3>
+            <p>Clean windows and storefronts for homes and businesses, one-off or on a regular schedule.</p>
+            <ul class="card-checklist">
+              <li>Windows, storefronts and frames</li>
+              <li>Sliding doors and glass railings</li>
+              <li>One-off or regular cleaning</li>
+            </ul>
+            <a href="services.html" class="btn btn-outline">Learn More</a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1356,6 +1378,7 @@
                   <option value="apolymasi">Disinfection</option>
                   <option value="myoktonia">Rodent Control</option>
                   <option value="apothetika">Pest Repellents</option>
+                  <option value="tzamaries">Window &amp; Storefront Cleaning</option>
                   <option value="allo">Other</option>
                 </select>
                 <span class="form-error" role="alert"></span>
@@ -1485,6 +1508,7 @@
           <li><a href="services.html">Disinfection</a></li>
           <li><a href="services.html">Rodent Control</a></li>
           <li><a href="services.html">Pest Repellents</a></li>
+          <li><a href="services/tzamaries.html">Window &amp; Storefront Cleaning</a></li>
         </ul>
       </div>
 

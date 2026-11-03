@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108" role="img" aria-label="Window">
+  <!-- Placeholder: swap for tzamaries-icon.png.png when the real icon exists -->
+  <rect width="108" height="108" fill="#FFFFFF"/>
+  <rect x="9" y="9" width="90" height="90" rx="22" fill="#E8F8EF" stroke="#D3F0DF" stroke-width="1"/>
+  <!-- window frame -->
+  <rect x="30" y="26" width="48" height="56" rx="4" fill="#FFFFFF" stroke="#1E8449" stroke-width="3"/>
+  <!-- panes -->
+  <rect x="35" y="31" width="16.5" height="20.5" rx="1.5" fill="#C9EED8"/>
+  <rect x="56.5" y="31" width="16.5" height="20.5" rx="1.5" fill="#C9EED8"/>
+  <rect x="35" y="56.5" width="16.5" height="20.5" rx="1.5" fill="#C9EED8"/>
+  <rect x="56.5" y="56.5" width="16.5" height="20.5" rx="1.5" fill="#C9EED8"/>
+  <!-- mullions -->
+  <line x1="54" y1="27.5" x2="54" y2="80.5" stroke="#1E8449" stroke-width="3"/>
+  <line x1="31.5" y1="54" x2="76.5" y2="54" stroke="#1E8449" stroke-width="3"/>
+  <!-- glass shine -->
+  <line x1="38.5" y1="44" x2="45" y2="37.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="60" y1="44" x2="66.5" y2="37.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- sill -->
+  <rect x="26" y="82" width="56" height="5" rx="2.5" fill="#27AE60"/>
+</svg>
